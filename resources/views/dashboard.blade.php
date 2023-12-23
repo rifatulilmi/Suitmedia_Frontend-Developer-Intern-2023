@@ -106,30 +106,7 @@
         </div>
 
         <!-- Card -->
-        <!-- Card -->
         <div class="p-5" id="app">
-            <div class="container">
-                <div class="row align-items-start">
-                    @foreach($ideas as $idea)
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ $idea['attributes']['small_image'] }}" class="card-img-top" alt="photo" loading="lazy">
-                            <div class="card-body">
-                                <h5 class="card-date mt-3" style="font-weight: 600; color: #BDBDBD;">
-                                    {{ $idea['attributes']['published_at'] }}
-                                </h5>
-                                <p class="card-title text-lg">
-                                    {{ $idea['attributes']['title'] }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="p-5" id="app">
             <div class="container">
                 <div class="row align-items-start">
                     <div class="col">
@@ -161,7 +138,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- Pagination -->
         <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
@@ -294,35 +271,7 @@
             });
 
             //
-            new Vue({
-                el: '#app',
-                data: {
-                    ideasData: [],
-                },
-                mounted() {
-                    // URL API dan parameter
-                    const apiUrl = 'https://suitmedia-backend.suitdev.com/api/ideas';
-                    const params = {
-                        'page[number]': 1,
-                        'page[size]': 10,
-                        append: ['small_image', 'medium_image'],
-                        sort: 'published_at',
-                    };
-
-                    // Lakukan panggilan API
-                    axios.get(apiUrl, {
-                            params
-                        })
-                        .then(response => {
-                            // Tanggapi hasil dari API
-                            this.ideasData = response.data.data;
-                        })
-                        .catch(error => {
-                            // Tangani kesalahan
-                            console.error('Error fetching data from API:', error);
-                        });
-                },
-            });
+            
         </script>
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->

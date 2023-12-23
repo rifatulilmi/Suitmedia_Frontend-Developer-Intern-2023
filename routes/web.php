@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\DashboardController; // Add semicolon at the end
 
 /*
 |--------------------------------------------------------------------------
