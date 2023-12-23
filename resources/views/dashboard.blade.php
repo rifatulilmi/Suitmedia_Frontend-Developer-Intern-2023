@@ -79,9 +79,9 @@
                             </div>
                             <!-- Sort Pop-up element -->
                             <div id="sort-popup" class="popup">
-                                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" data-sort=" ">10</a>
-                                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" data-sort=" ">20</a>
-                                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" data-sort=" ">50</a>
+                                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" data-sort="10">10</a>
+                                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" data-sort="20">20</a>
+                                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" data-sort="50">50</a>
                             </div>
                         </div>
 
@@ -186,8 +186,6 @@
             </div>
         </div>
 
-
-
         <!-- Optional JavaScript; choose one of the two! -->
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -271,7 +269,21 @@
             });
 
             //
-            
+            // Ambil nilai page[size] dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageSize = urlParams.get('page[size]');
+
+            // Tandai elemen yang sesuai dengan nilai page[size]
+            const sortPopUp = document.getElementById('sort-popup');
+            const itemsPerPageElements = sortPopUp.getElementsByTagName('a');
+
+            for (const element of itemsPerPageElements) {
+                // Periksa apakah nilai data-sort sama dengan page[size]
+                if (element.getAttribute('data-sort') === pageSize) {
+                    // Tambahkan kelas aktif atau sesuai dengan kebutuhan Anda
+                    element.classList.add('active');
+                }
+            }
         </script>
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->

@@ -14,4 +14,4 @@ use App\Http\Controllers\DashboardController; // Add semicolon at the end
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
